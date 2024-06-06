@@ -1,8 +1,10 @@
-<div style="display: flex; flex-direction:column; align-items:center;">
-<h1 style="text-align: center; width: 100%">resize-kit</h1>
-<p>A React Hook that makes any component resizable. Extremely flexible and unopinionated.</p>
+<div align="center">
+
+# resize-kit
+A React Hook that makes any component resizable. Extremely flexible and unopinionated.
+
 <img alt="NPM Version" src="https://img.shields.io/npm/v/resize-kit">
-<div>
+</div>
 <br>
 
 
