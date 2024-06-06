@@ -1,0 +1,58 @@
+{
+  "name": "resize-kit",
+  "description": "A React Hook that makes any component resizable. Extremely flexible and unopinionated.",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "author": {
+    "name": "Pedro Costa",
+    "email": "scosta.pedro.manoel@gmail.com",
+    "url": "https://github.com/pedroscosta"
+  },
+  "homepage": "https://github.com/pedroscosta/resize-kit",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroscosta/resize-kit.git"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "npm start",
+    "start": "ladle serve",
+    "build-docs": "ladle build --viteConfig vite-ladle.config.ts -o docs && touch ./docs/.nojekyll",
+    "lint": "eslint . --ext .ts,.tsx"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-plugin-dts": "^2.3.0",
+    "@ladle/react": "^2.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
