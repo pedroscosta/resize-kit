@@ -40,4 +40,6 @@ const Component = () => {
 ---
 
 <br>
-<div style="text-align: center; width: 100%"><b>Created by <a href="https://x.com/pedroscosta_">@pedroscosta_</a> with ❤️</b></div>
+<div align="center">
+<b>Created by <a href="https://x.com/pedroscosta_">@pedroscosta_</a> with ❤️</b>
+</div>
