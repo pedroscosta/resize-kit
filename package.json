@@ -1,7 +1,7 @@
 {
   "name": "resize-kit",
   "description": "A React Hook that makes any component resizable. Extremely flexible and unopinionated.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": {
     "name": "Pedro Costa",
