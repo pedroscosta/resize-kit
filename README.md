@@ -22,7 +22,7 @@ pnpm add resize-kit
 
 Add the hook to your component:
 
-```typescript
+```tsx
 const Component = () => {
   const { createHandleListeners, transform } = useResizable({});
 

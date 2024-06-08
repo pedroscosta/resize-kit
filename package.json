@@ -1,7 +1,6 @@
 {
   "name": "resize-kit",
   "description": "A React Hook that makes any component resizable. Extremely flexible and unopinionated.",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "author": {
@@ -17,12 +16,12 @@
   },
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
+      "import": "./dist/index.js",
       "require": "./dist/index.umd.js"
     }
   },
   "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc && vite build",
