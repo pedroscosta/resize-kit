@@ -1,5 +1,6 @@
 import type { Story } from '@ladle/react';
 import { boundToParentElement } from '../src';
+import { createSnapModifier } from '../src/modifiers/snap';
 import { ResizableComponent } from './ResizableComponent';
 
 export const BoundToParent: Story = () => {
@@ -8,4 +9,8 @@ export const BoundToParent: Story = () => {
       <ResizableComponent modifiers={[boundToParentElement]} />
     </div>
   );
+};
+
+export const Snap: Story = () => {
+  return <ResizableComponent modifiers={[createSnapModifier([25, 25])]} />;
 };
