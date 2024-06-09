@@ -1,13 +1,11 @@
-import type { Story, StoryDefault } from '@ladle/react';
 import { useMemo, useState } from 'react';
-import { useResizable } from '../../src';
+import { Modifiers, useResizable } from '../src';
 
-// More on how to set up stories at: https://ladle.dev/docs/stories
-export default {
-  title: 'Basic',
-} satisfies StoryDefault;
+type Props = {
+  modifiers?: Modifiers;
+};
 
-export const XAndY: Story = () => {
+export const ResizableComponent = ({ modifiers }: Props) => {
   const [pos, setPos] = useState({ left: 0, top: 0, width: 150, height: 150 });
 
   const { transform, getHandleListeners } = useResizable({
@@ -19,6 +17,7 @@ export const XAndY: Story = () => {
         height: prev.height + (transform.h ?? 0),
       }));
     },
+    modifiers,
   });
 
   const transformedPos = useMemo(
