@@ -4,6 +4,7 @@
 A React Hook that makes any component resizable. Extremely flexible and unopinionated.
 
 <img alt="NPM Version" src="https://img.shields.io/npm/v/resize-kit">
+<img alt="NPM Version" src="https://badgen.net/bundlephobia/minzip/resize-kit">
 </div>
 <br>
 
