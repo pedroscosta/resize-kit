@@ -1,0 +1,1 @@
+import{j as t}from"./index-8f8652c9.js";import{R as e}from"./ResizableComponent-86bb0611.js";const d={title:"Basic"},s=()=>t(e,{});typeof window<"u"&&window.document&&window.document.createElement&&document.documentElement.setAttribute("data-storyloaded","");export{s as XAndY,d as default};
