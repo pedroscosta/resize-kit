@@ -6,6 +6,17 @@ export type Transform = { x: number; y: number; w: number; h: number };
 
 export type Delta = { x: number; y: number };
 
+export type Modifier = (args: {
+  activatorEvent: SyntheticPointerEvent;
+  event: PointerEvent;
+  transform: Transform;
+  delta: Delta;
+  target: HTMLElement;
+  originalRect: DOMRect;
+}) => Transform;
+
+export type Modifiers = Modifier[];
+
 export type ResizeEvent = (data: {
   transform: Transform;
   delta: Delta;
@@ -17,6 +28,7 @@ export type UseResizableOptions = {
   onResizeStart?: (data: { event: SyntheticPointerEvent; handle?: ResizeDirection }) => void;
   onResize?: ResizeEvent;
   onResizeEnd?: ResizeEvent;
+  modifiers?: Modifiers;
 };
 
 const directionMultiplicationMatrix: Record<ResizeDirection, Transform> = {
@@ -70,7 +82,7 @@ const directionMultiplicationMatrix: Record<ResizeDirection, Transform> = {
   },
 };
 
-export const useResizable = ({ onResizeStart, onResize, onResizeEnd }: UseResizableOptions) => {
+export const useResizable = ({ onResizeStart, onResize, onResizeEnd, modifiers }: UseResizableOptions) => {
   const [transform, setTransform] = useState<Transform>();
 
   const getListenerForDirection = useCallback(
@@ -84,6 +96,10 @@ export const useResizable = ({ onResizeStart, onResize, onResizeEnd }: UseResiza
             h: 0,
           });
 
+          const originalRect = JSON.parse(
+            JSON.stringify((event.target as HTMLElement).parentElement!.getBoundingClientRect()),
+          );
+
           onResizeStart && onResizeStart({ event, handle: handleDir });
 
           const getDeltaAndTransform = (pmEvent: PointerEvent) => {
@@ -94,14 +110,29 @@ export const useResizable = ({ onResizeStart, onResize, onResizeEnd }: UseResiza
 
             const matrix = directionMultiplicationMatrix[handleDir];
 
+            const newTransform: Transform = {
+              x: matrix.x * delta.x,
+              y: matrix.y * delta.y,
+              w: matrix.w * delta.x,
+              h: matrix.h * delta.y,
+            };
+
             return {
               delta,
-              newTransform: {
-                x: matrix.x * delta.x,
-                y: matrix.y * delta.y,
-                w: matrix.w * delta.x,
-                h: matrix.h * delta.y,
-              } satisfies Transform,
+              newTransform: modifiers
+                ? modifiers.reduce<Transform>(
+                    (prev, modifier) =>
+                      modifier({
+                        activatorEvent: event,
+                        delta,
+                        event: pmEvent,
+                        transform: prev,
+                        target: event.target as HTMLElement,
+                        originalRect,
+                      }),
+                    newTransform,
+                  )
+                : newTransform,
             };
           };
 
