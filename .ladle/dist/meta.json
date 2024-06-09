@@ -1,0 +1,39 @@
+{
+  "about": {
+    "homepage": "https://www.ladle.dev",
+    "github": "https://github.com/tajo/ladle",
+    "version": 1
+  },
+  "stories": {
+    "basic--x-and-y": {
+      "name": "X and y",
+      "levels": [
+        "Basic"
+      ],
+      "locStart": 9,
+      "locEnd": 11,
+      "filePath": "examples/basic.stories.tsx",
+      "meta": {}
+    },
+    "modifiers--bound-to-parent": {
+      "name": "Bound to parent",
+      "levels": [
+        "Modifiers"
+      ],
+      "locStart": 6,
+      "locEnd": 12,
+      "filePath": "examples/modifiers.stories.tsx",
+      "meta": {}
+    },
+    "modifiers--snap": {
+      "name": "Snap",
+      "levels": [
+        "Modifiers"
+      ],
+      "locStart": 14,
+      "locEnd": 16,
+      "filePath": "examples/modifiers.stories.tsx",
+      "meta": {}
+    }
+  }
+}
