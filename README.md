@@ -113,7 +113,7 @@ type onResizeEnd = (data: {
 }) => void;
 ```
 
-## Modifier
+## Modifiers
 
 In order to modify the original resizing behavior, passing a modifier is required. Here are the included modifiers:
 
@@ -151,7 +151,7 @@ const Component = () => {
 }
 ```
 
-### Creating a custom modifier
+### Creating a custom modifier:
 
 Creating a modifier is as simple as creating a function that returns a new Transform:
 
@@ -164,7 +164,6 @@ const customSnapModifier: Modifier = ({ transform }) => {
   };
 }
 ```
-
 
 <br>
 
